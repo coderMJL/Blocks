@@ -24,21 +24,24 @@ typedef void (^myBlock) (int ,int);
       block 在方法中充当参数的使用 主要用途在于参数的回调
        回调机制
     
-    */ 
+    */
+    //定义一个功能,两个参数,相加
     myBlock addblock=^(int a,int b){
         NSLog(@"%d",a+b);
        
     };
+    //定义一个功能,两个参数,相乘
     myBlock multBlock=^(int a,int b){
         NSLog(@"%d",a*b);
     
     };
     
+    //使用功能add;
     [self useBlock:addblock];
+    //使用功能mult;
     [self useBlock:multBlock];
-    
+
     //最常见的写法 ，省略block变量名字
-    
     /*
      ^(int a, int b) {
      NSLog(@"%d",a-b);
@@ -49,15 +52,12 @@ typedef void (^myBlock) (int ,int);
     }];
 }
 
-
--(void) useBlock:(myBlock)block{
+// 根据一个block,这个是根据一个函数指针,或者根据一个功能,执行操作
+-(void) useBlock:(myBlock)block
+{
 
         block(2,3);
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

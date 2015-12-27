@@ -18,7 +18,7 @@
     }
     return self;
 }
-
+//根据,title,message,功能block,cancelButtontile,otherButonTitles,...初始化.
 - (id)initWithTitle:(NSString *)title message:(NSString *)message  useblock:(block)block
   cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...{
 
@@ -30,6 +30,7 @@
 
 }
 
+//根据,alerView,buutonindex,,点击视图按钮的时候回执行,视图也会执行_Selctblock,并传进参数buttonIndex
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
        _Selctblock(buttonIndex);

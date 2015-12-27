@@ -33,12 +33,13 @@ typedef void (^myblock)();
      
         使用block_copy();将block 把栈放到堆上。
      */
-    
+    int a =100;
     
     NSLog(@"%lu",(unsigned long)self.retainCount);
+    
     myblock block=^(){
     
-        NSLog(@"%lu",(unsigned long)self.retainCount);
+        NSLog(@"%lu  %d",(unsigned long)self.retainCount,a+1);
 
     };
     
@@ -46,12 +47,6 @@ typedef void (^myblock)();
     
     
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

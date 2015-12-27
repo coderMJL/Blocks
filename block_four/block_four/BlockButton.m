@@ -20,11 +20,12 @@ static char overviewKey;
     return self;
 }
 
-
+//根据event, 功能block
 - (void)handleControlEvent:(UIControlEvents)event withBlock:(ActionBlock)block {
     objc_setAssociatedObject(self, &overviewKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self addTarget:self action:@selector(callActionBlock:) forControlEvents:event];
 }
+
 
 
 - (void)callActionBlock:(id)sender {

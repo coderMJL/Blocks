@@ -28,16 +28,22 @@
 
 - (IBAction)change:(id)sender {
     TwoViewController *two=[[TwoViewController alloc] init];
-    [two chageValue:^(NSString *currentStr) {
-        self.ShowText.text=currentStr;
-    }];
+    //two执行了一个函数,修改了本控制的界面
+//    [two chageValue:^(NSString *currentStr) {
+//        self.ShowText.text=currentStr;
+//         NSLog(@"%@",currentStr);
+//    }];
+
     [self presentViewController:two animated:YES completion:^{
         
     }];
-//    two.block=^(NSString *a){
-//    
-//        self.ShowText.text=a;
-//    };
+    
+    //对two的变量进行初始化,当two执行这个block的时候回去b里面找这个函数
+    two.block=^(NSString *a){
+    
+        self.ShowText.text=a;
+         NSLog(@"%@",a);
+    };
     
     
 }
