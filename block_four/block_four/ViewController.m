@@ -76,6 +76,7 @@ static char flashColorKey;
     
     UILabel *lab = [[UILabel alloc] init];
     [lab setFlashColor:[UIColor redColor]];
+
     NSLog(@"%@", [lab getFlashColor]);
 }
 
