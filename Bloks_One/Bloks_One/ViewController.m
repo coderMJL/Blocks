@@ -27,19 +27,41 @@ typedef int (^myblockTwo) (int,int);
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    
+    int (^myblock) (int a);
+    
+    //对数据不进行定义的时候
+    myblock(10);//崩溃,
+    sum(10, 10);//编译不通过
+    char *a;//不崩溃,打印如下
+    NSString *s = @"ada";//打印如下
+    NSObject *s1;//打印如下
+    NSLog(@"a == %p",s1);//a == 0x0
+    NSLog(@"a == %@",s1);//a == 0x0
+
+    2015-12-30 10:59:21.716 Bloks_One[1157:20154] a == 0x0
+    2015-12-30 10:59:21.717 Bloks_One[1157:20154] a == (null)
+    
+    
+}
+
+@end
+int f() {
     
     //申明一个block变量 分别是返回类型  block变量名称 输入的参数
     //通过关键词避免循环引用
-   __block int b = 100;
+    __block int b = 100;
     
+    //声明
     int (^myBlock) (int a);
-    //创建一个block
+    //定义一个block
     myBlock=^(int a){
         
         b = 10001;
         return a+7;
     };
+    
+    //任何一个方法需要经过,,,声明(可省略)---定义(必须有)---调用(根据需求调用,不调用函数不会自己执行)
     
     /*
      //声明与创建写在一起
@@ -50,7 +72,7 @@ typedef int (^myblockTwo) (int,int);
      }
      
      
-    */
+     */
     
     //调用blocks
     NSLog(@"%d",myBlock(10));
@@ -89,11 +111,3 @@ typedef int (^myblockTwo) (int,int);
     
     
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-@end
